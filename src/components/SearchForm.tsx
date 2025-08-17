@@ -7,16 +7,16 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { searchSignals } from "@/lib/actions/actions";
 
-// Define tipo para el estado
+
 interface SearchState {
 	success: boolean;
 	results: any[];
-	errors?: { _global?: string[] };  // Opcional para manejar errores
+	errors?: { _global?: string[] };  
 }
 
 async function handleSearch(prevState: SearchState, formData: FormData): Promise<SearchState> {
 	const result = await searchSignals(formData);
-	return result;  // Asegúrate de que searchSignals retorne SearchState
+	return result; 
 }
 
 export default function SearchForm() {

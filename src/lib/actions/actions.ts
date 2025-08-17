@@ -147,7 +147,7 @@ export async function searchSignals(formData: FormData) {
 		type DuckDuckGoTopic = {
 			Text: string;
 			FirstURL: string;
-			// Add other properties if needed
+			
 		};
 
 		const results = data.RelatedTopics?.slice(0, 5).map((topic: DuckDuckGoTopic, index: number) => ({
@@ -180,7 +180,7 @@ const simulateEventSchema = z.object({
 });
 
 export async function simulateEvent(formData: FormData) {
-	const correlationId = uuidv4();  // Correlation ID para trazabilidad
+	const correlationId = uuidv4(); 
 	console.info(JSON.stringify({ message: 'Simulate event started', correlationId }));
 
 	const data = {
@@ -212,7 +212,7 @@ export async function simulateEvent(formData: FormData) {
 		if (!aiResult) {
 			console.info(JSON.stringify({ message: 'Cache miss, calling AI', correlationId }));
 			aiResult = JSON.stringify(await processEventWithAI(validation.data.description, watchlist.terms, correlationId));
-			await redis.set(cacheKey, aiResult, 'EX', 3600);  // Cache por 1 hora
+			await redis.set(cacheKey, aiResult, 'EX', 3600);  
 		} else {
 			console.info(JSON.stringify({ message: 'Cache hit', correlationId }));
 		}

@@ -9,13 +9,12 @@ export function DeleteButton({ id }: { id: string }) {
 	const { pending } = useFormStatus();
 	const [isDeleting, setIsDeleting] = useState(false);
 
-	// Utilizamos un FormData para pasar el ID a la Server Action
+
 	const formData = new FormData();
 	formData.append('id', id);
 
 	const handleDelete = async () => {
 		setIsDeleting(true);
-		// Llama a la Server Action
 		await deleteWatchlist(formData);
 		setIsDeleting(false);
 	}
