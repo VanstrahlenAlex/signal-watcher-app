@@ -13,3 +13,5 @@ Responde en JSON: { "summary": "...", "severity": "...", "suggestedAction": "...
 
 Uso: Llamado en simulateEvent. Modo mock activado para pruebas sin cuota.
 Historia: Probado con descripciones como "Dominio sospechoso detectado" (severidad HIGH).
+
+Se utilizo Gemini por su tier gratuito

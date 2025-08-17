@@ -32,9 +32,9 @@ export async function processEventWithAI(description: string, terms: string[], c
 	try {
 		const model = gemini.getGenerativeModel({ model: 'gemini-1.5-flash' });
 		const response = await model.generateContent(prompt);
-		// Asegúrate de que el texto devuelto sea un JSON válido eliminando markdown
+
 		let text = response.response.text();
-		// Elimina ```json y ``` al inicio y final si los incluye
+
 		text = text.replace(/```json\s*|\s*```/g, '').trim();
 		const result = JSON.parse(text);
 		console.info(JSON.stringify({ message: 'AI processed successfully', correlationId }));

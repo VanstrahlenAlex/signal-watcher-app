@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
- // Importa la nueva acción
-import { useFormState } from 'react-dom';  // Nota: No uses useFormStatus aquí, solo useFormState
+
 import { simulateEvent } from '@/lib/actions/actions';
 
 export default function SimulateButton({ watchlistId }: { watchlistId: string }) {
