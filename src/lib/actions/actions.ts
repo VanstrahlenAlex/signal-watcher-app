@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use server";
 
@@ -136,33 +137,27 @@ export async function getWatchlists() {
 }
 
 export async function searchSignals(formData: FormData) {
-	const query = formData.get('query') as string;
-	if (!query || query.trim() === '') {
-		return { success: false, results: [] };
+	const query = formData.get("query") as string;
+	if (!query || query.trim() === "") {
+		return { success: false, results: [], errors: { _global: ["El término de búsqueda es requerido."] } };
 	}
 
 	try {
 		const response = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json`);
 		const data = await response.json();
-		type DuckDuckGoTopic = {
-			Text: string;
-			FirstURL: string;
-			
-		};
-
-		const results = data.RelatedTopics?.slice(0, 5).map((topic: DuckDuckGoTopic, index: number) => ({
+		const results = data.RelatedTopics?.slice(0, 5).map((topic: any, index: number) => ({
 			id: index.toString(),
-			title: topic.Text,
-			url: topic.FirstURL,
-			source: 'DuckDuckGo',
-			publishedDate: new Date().toISOString().split('T')[0],
-			snippet: topic.Text,
+			title: topic.Text || "Sin título",
+			url: topic.FirstURL || "#",
+			source: "DuckDuckGo",
+			publishedDate: new Date().toISOString().split("T")[0],
+			snippet: topic.Text || "Sin descripción",
 		})) || [];
 
 		return { success: true, results };
 	} catch (error) {
-		console.error('Search error:', error);
-		return { success: false, results: [] };
+		console.error("Search error:", error);
+		return { success: false, results: [], errors: { _global: ["Error al realizar la búsqueda."] } };
 	}
 }
 

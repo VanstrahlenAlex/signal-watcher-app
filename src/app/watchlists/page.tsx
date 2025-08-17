@@ -9,6 +9,7 @@ import SearchForm from "@/components/SearchForm";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+
 export default async function WatchlistsPage() {
 	
 	const watchlists = await db.watchlist.findMany({
