@@ -92,13 +92,15 @@ export default function PresentationPage() {
 							</CardHeader>
 							<CardContent>
 								<div className="flex flex-wrap gap-2">
-									<Badge variant="secondary">Next.js 14</Badge>
+									<Badge variant="secondary">Next.js 15</Badge>
 									<Badge variant="secondary">TypeScript</Badge>
 									<Badge variant="secondary">Prisma ORM</Badge>
 									<Badge variant="secondary">PostgreSQL</Badge>
 									<Badge variant="secondary">Redis</Badge>
 									<Badge variant="secondary">Google Gemini AI</Badge>
 									<Badge variant="secondary">Tailwind CSS</Badge>
+									<Badge variant="secondary">SHADCN/UI</Badge>
+									<Badge variant="secondary">Neon</Badge>
 									<Badge variant="secondary">Vercel</Badge>
 								</div>
 							</CardContent>

@@ -46,7 +46,7 @@ Micro-producto para vigilancia de señales con Next.js, Prisma, Redis y IA (Gemi
 4. npm run dev (accede a http://localhost:3000/watchlists)
 
 ## Despliegue
-- Vercel.
+- Vercel: [Deployed URL](https://signal-watcher-app-vk6h.vercel.app/)
 
 ## Flujo Principal
 - Crea watchlists.
