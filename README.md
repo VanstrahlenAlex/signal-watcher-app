@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Signal Watcher
+
+Micro-producto para vigilancia de señales con Next.js, Prisma, Redis y IA (Gemini/mock).
+
+## Setup Local
+1. npm i
+2. Copia .env.example a .env.local y configura vars (DATABASE_URL, REDIS_URL, GEMINI_API_KEY opcional para IA real).
+3. npx prisma migrate dev
+4. npm run dev (accede a http://localhost:3000/watchlists)
+
+## Despliegue
+- Vercel: Configura env vars y conecta repo GitHub para auto-deploy.
+
+## Flujo Principal
+- Crea watchlists.
+- Simula eventos (procesados con IA o mock).
+- Busca señales.
+
+## Tecnologías
+- Next.js (App Router, Server Actions).
+- Prisma + Postgres (Neon).
+- Redis (Upstash).
+- IA: Google Gemini (free tier) con fallback mock.
