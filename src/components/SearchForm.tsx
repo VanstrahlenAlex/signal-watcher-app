@@ -4,7 +4,7 @@
 import { useActionState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import SearchResults from "./SearchResults"; // Importa SearchResults
+import SearchResults from "./SearchResults"; 
 import { searchSignals } from "@/lib/actions/actions";
 
 interface SearchState {
